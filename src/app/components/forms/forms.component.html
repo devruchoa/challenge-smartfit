@@ -1,0 +1,30 @@
+<form action="" class="form-group">
+  <div class="form-icon">
+    <img src="assets/images/png/icon-hour.png" alt="Ícone relógio" />Horário
+  </div>
+  <h3>Qual horário você quer treinar?</h3>
+  <div class="radio-wrapper">
+    <input type="radio" name="morning" id="morning" value="morning" />
+    <label for="morning">Manhã</label>
+    <span>06:00 às 12:00</span>
+  </div>
+  <div class="radio-wrapper">
+    <input type="radio" name="afternoon" id="afternoon" value="afternoon" />
+    <label for="afternoon">Tarde</label>
+    <span>12:01 às 18:00</span>
+  </div>
+  <div class="radio-wrapper">
+    <input type="radio" name="night" id="night" value="night" />
+    <label for="night">Noite</label>
+    <span>18:01 às 23:00</span>
+  </div>
+  <div class="checkbox-wrapper">
+    <input type="checkbox" name="show-closed" id="" />
+    <label for="show-closed">Exibir unidades fechadas</label>
+    <span>Resultados encontrados: {{ results.length }}</span>
+  </div>
+  <div class="button-wrapper">
+    <button class="btn btn-primary">Encontrar unidade</button>
+    <button class="btn btn-secondary">Limpar</button>
+  </div>
+</form>
