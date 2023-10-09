@@ -4,15 +4,33 @@ import { FilterUnitsService } from 'src/app/services/filter-units.service';
 import { GetUnitsService } from 'src/app/services/get-units.service';
 import { Location } from 'src/app/types/location.interface';
 
+/**
+ * Component responsible for displaying a form to filter locations.
+ */
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss'],
 })
 export class FormsComponent implements OnInit {
+  /**
+   * Event emitter that emits when the form is submitted.
+   */
   @Output() submitEvent = new EventEmitter();
+
+  /**
+   * Array of all locations.
+   */
   results: Location[] = [];
+
+  /**
+   * Array of filtered locations.
+   */
   filteredResults: Location[] = [];
+
+  /**
+   * FormGroup instance that holds the form controls.
+   */
   formGroup!: FormGroup;
 
   constructor(
@@ -22,6 +40,9 @@ export class FormsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    /**
+     * Initializes the formGroup with default values and subscribes to the getAllUnits method to get all locations.
+     */
     this.formGroup = this.formBuilder.group({
       hour: '',
       showClosed: true,
@@ -32,6 +53,9 @@ export class FormsComponent implements OnInit {
     });
   }
 
+  /**
+   * Filters the locations based on the form values and emits the submitEvent.
+   */
   onSubmit(): void {
     let { showClosed, hour } = this.formGroup.value;
     this.filteredResults = this.filterUnitsService.filter(
@@ -43,6 +67,9 @@ export class FormsComponent implements OnInit {
     this.submitEvent.emit();
   }
 
+  /**
+   * Resets the formGroup to its default values.
+   */
   onClean(): void {
     this.formGroup.reset();
   }
