@@ -33,7 +33,7 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```bash
   git clone https://github.com/devruchoa/challenge-smartfit.git
-  cd smartfit-frontend-challenge
+  cd challenge-smartfit
 
 ```
 
